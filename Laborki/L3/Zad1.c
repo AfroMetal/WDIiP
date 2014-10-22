@@ -12,48 +12,49 @@ int main()
 	{
 		a=i;
 	}
-	printf("unsingned short int:\n");
+	printf("\nunsingned short int:\n");
 	printf("max %hu\n", a);
-	printf("min %hu\n", a++);
+	printf("min %hu\n", a+1);
 	
 	for (signed short int i=1; i>0; i++)
 	{
 		b=i;
 	}
-	printf("signed short int:\n");
+	printf("\nsigned short int:\n");
 	printf("max %hd\n", b);
-	printf("min %hd\n", b++);
+	printf("min %hd\n", b+1);
 	
 	for (signed int i=1; i>0; i++)
 	{
 		c=i;
 	}
-	printf("singned int:\n");
+	printf("\nsingned int:\n");
 	printf("max %d\n", c);
-	printf("min %d\n", c++);
+	printf("min %d\n", c+1);
 	
 	for (unsigned int i=1; i>0; i++)
 	{
 		d=i;
 	}
-	printf("unsigned int:\n");
+	printf("\nunsigned int:\n");
 	printf("max %u\n", d);
-	printf("min %u\n", d++);
+	printf("min %u\n", d+1);
 	
 	for (unsigned long int i=1; i>0; i++)
+	{
 		e=i;
 	}
-	printf("unsigned long int:\n");
+	printf("\nunsigned long int:\n");
 	printf("max %lu\n", e);
-	printf("min %lu\n", e++);
+	printf("min %lu\n", e+1);
 	
 	for (signed long int i=1; i>0; i++)
 	{
 		f=i;
 	}
-	printf("signed long int:\n");
+	printf("\nsigned long int:\n");
 	printf("max %ld\n", f);
-	printf("min %ld\n", f++);
+	printf("min %ld\n", f+1);
 	
 	return 0;
 }
