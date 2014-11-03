@@ -1,60 +1,60 @@
 #include <stdio.h>
 int main()
 {
-	unsigned short int a;
-	signed short int b;
-	signed int c;
-	unsigned int d;
-	unsigned long int e;
-	signed long int f;
-
-	for (unsigned short int i=1; i>0; i++)
+	unsigned short int a=1;
+	signed short int b=1;
+	unsigned int c=1;
+	signed int d=1;
+	unsigned long int e=1;
+	signed long int f=1;
+	
+	while (a >= 1)
 	{
-		a=i;
+		a=2*a;
 	}
 	printf("\nunsingned short int:\n");
-	printf("max %hu\n", a);
-	printf("min %hu\n", (unsigned short)(a+1));
+	printf("min %hu\n", a);
+	printf("max %hu\n", (unsigned short)(a-1));
 
-	for (signed short int i=1; i>0; i++)
+	while (b >= 1)
 	{
-		b=i;
+		b=2*b;
 	}
 	printf("\nsigned short int:\n");
-	printf("max %hd\n", b);
-	printf("min %hd\n", (short)(b+1));
-
-	for (signed int i=1; i>0; i++)
+	printf("min %hd\n", b);
+	printf("max %hd\n", (short)(b-1));
+	
+	while (c >= 1)
 	{
-		c=i;
-	}
-	printf("\nsingned int:\n");
-	printf("max %d\n", c);
-	printf("min %d\n", c+1);
-
-	for (unsigned int i=1; i>0; i++)
-	{
-		d=i;
+		c=2*c;
 	}
 	printf("\nunsigned int:\n");
-	printf("max %u\n", d);
-	printf("min %u\n", (unsigned)(d+1));
+	printf("min %u\n", c);
+	printf("max %u\n", (unsigned)(c-1));
 
-	for (unsigned long int i=1; i>0; i++)
+	while (d >= 1)
 	{
-		e=i;
+		d=2*d;
+	}
+	printf("\nsingned int:\n");
+	printf("min %d\n", d);
+	printf("max %d\n", d-1);
+
+	while (e >= 1)
+	{
+		e=2*e;
 	}
 	printf("\nunsigned long int:\n");
-	printf("max %lu\n", e);
-	printf("min %lu\n", (unsigned long)(e+1));
+	printf("min %lu\n", e);
+	printf("max %lu\n", (unsigned long)(e-1));
 
-	for (signed long int i=1; i>0; i++)
+	while (f >= 1)
 	{
-		f=i;
+		f=2*f;
 	}
 	printf("\nsigned long int:\n");
-	printf("max %ld\n", f);
-	printf("min %ld\n", (long)(f+1));
-
+	printf("min %ld\n", f);
+	printf("max %ld\n", (long)(f-1));
+	
 	return 0;
 }
