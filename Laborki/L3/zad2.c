@@ -23,9 +23,12 @@ int main()
 {
 	int result;
 	char str[25];
-	printf("Podaj łańcuch do sprawdzenia: ");
+	printf("\nPodaj łańcuch do sprawdzenia: ");
 	scanf("%s", str);
 	result = palindrom(str);
-	printf("%d\n", result);
+	if (result == 0)
+		printf("\nŁańcuch nie jest palindromem.\n\n");
+	else
+		printf("\nŁańcuch jest palindromem.\n\n");
 	return 0;
 }
