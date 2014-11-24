@@ -18,30 +18,24 @@ double rozwiazanie(double a, double b, double eps)
 		if (f(x) < eps && f(x) > -eps)
 			return x;
 	}*/
-	double za, zb, zx, x=0.0;
-	while((a+eps)>b || (a-eps)
+	double x=0.0;
 	{
-	x = -(((0-a)+(0-b))/2);
-	if(f(a)>0)
-		za = 1;
-	else
-		za = 0;
-	if(f(b)>0)
-		zb = 1;
-	else
-		zb = 1;
-	if(f(x)>0)
-		zx = 1;
-	else
-		zx = 0;
-	if(za != zx)
-		b = x;
-	else
-		a = x;
+		while((f(a-b)>eps || f(a-b)<-eps) && i>0)
+		{
+			x=(a+b)/2.0;
+			if(f(f(x)<eps)
+				i=0;
+			if(f(a)*f(x)<0)
+				b=x;
+			else
+			{
+				a=x;
+			}
+		}
+		return x;
 	}
-	return x;
-	//printf("Nie znaleziono miejsca zerowego\n");
-	//return 0;
+	printf("Nie znaleziono miejsca zerowego\n");
+	return 0;
 }
 
 int main()
