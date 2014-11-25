@@ -7,21 +7,21 @@ void d2r(char *str, unsigned int n)
 		str[i]='M';
 		i++;
 	}
-/*	for(;n>=500; n-=500)
+	for(;n>=500; n-=500)
 	{
 		str[i]='D';
 		i++;
-	}*/
+	}
 	for(;n>=100; n-=100)
 	{
 		str[i]='C';
 		i++;
 	}
-/*	for(;n>=50; n-=50)
+	for(;n>=50; n-=50)
 	{
 		str[i]='L';
 		i++;
-	}*/
+	}
 	for(;n>=10; n-=10)
 	{
 		str[i]='X';
