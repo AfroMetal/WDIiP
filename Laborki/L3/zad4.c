@@ -7,8 +7,22 @@ void d2r(char *str, unsigned int n)
 		str[i]='M';
 		i++;
 	}
+	for(;n>=900; n-=900)
+	{
+		str[i]='C';
+		i++;
+		str[i]='M';
+		i++;
+	}
 	for(;n>=500; n-=500)
 	{
+		str[i]='D';
+		i++;
+	}
+	for(;n>=400; n-=400)
+	{
+		str[i]='C';
+		i++;
 		str[i]='D';
 		i++;
 	}
@@ -17,8 +31,22 @@ void d2r(char *str, unsigned int n)
 		str[i]='C';
 		i++;
 	}
+	for(;n>=90; n-=90)
+	{
+		str[i]='X';
+		i++;
+		str[i]='C';
+		i++;
+	}
 	for(;n>=50; n-=50)
 	{
+		str[i]='L';
+		i++;
+	}
+	for(;n>=40; n-=40)
+	{
+		str[i]='X';
+		i++;
 		str[i]='L';
 		i++;
 	}
@@ -27,8 +55,22 @@ void d2r(char *str, unsigned int n)
 		str[i]='X';
 		i++;
 	}
+	for(;n>=9; n-=9)
+	{
+		str[i]='I';
+		i++;
+		str[i]='X';
+		i++;
+	}
 	for(;n>=5; n-=5)
 	{
+		str[i]='V';
+		i++;
+	}
+	for(;n>=4; n-=4)
+	{
+		str[i]='I';
+		i++;
 		str[i]='V';
 		i++;
 	}
