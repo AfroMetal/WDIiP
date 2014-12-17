@@ -5,19 +5,23 @@ int k, n;
 
 void kombinacje(int *t, int k, int m)
 {
-	if(k==0){
+	if(k==0)
+	{
 		for(int i=1; i<=n; i++)
 			if(t[i])
 				printf(" %d", i);
 			printf("\n");
 	}
-	else if(k>m) return;
-	else{
-		t[m]=1;
-		kombinacje(t, k-1, m-1);
-		t[m]=0;
-		kombinacje(t, k, m-1);
-	}
+	else 
+		if(k>m)
+			return;
+		else
+		{
+			t[m]=1;
+			kombinacje(t, k-1, m-1);
+			t[m]=0;
+			kombinacje(t, k, m-1);
+		}
 }
 
 int main()
