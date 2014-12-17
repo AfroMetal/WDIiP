@@ -31,7 +31,7 @@ char strMatch(char *w, char *s)
 int main()
 {
 	char w[100], s[100];
-	printf("Podaj wzor: ");
+	printf("\nPodaj wzor: ");
 	scanf("%s", w);
 	printf("\nPodaj lancuch: ");
 	scanf("%s", s);
