@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <math.h>
+
+double intpower(double x, int n)
+{
+	if(n==0)
+		return 1;
+	if(n==1)
+		return x;
+	if(n%2==1)
+		return x * intpower(x, n-1);
+	else
+		return (intpower(x, n/2))*(intpower(x, n/2));
+}
+
+int main()
+{
+	double x;
+	int n;
+	printf("Podaj podstawę x = ");
+	scanf("%lf", &x);
+	printf("Podaj wykladnik n = ");
+	scanf("%d", &n);
+	printf("%.0lf ^ %d = %.0f\n", x, n, intpower(x, n));
+	return 0;
+}
