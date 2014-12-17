@@ -11,10 +11,10 @@ void kombinacje(int *t, int k, int m)
 				printf(" %d", i);
 			printf("\n");
 	}
-	else if(k>n) return;
+	else if(k>m) return;
 	else{
 		t[m]=1;
-		kombinacje(t, k, m-1);
+		kombinacje(t, k-1, m-1);
 		t[m]=0;
 		kombinacje(t, k, m-1);
 	}
