@@ -32,6 +32,8 @@ int main()
 	scanf("%d", &k);
 	printf("\n");
 	int t[n+1];
+	for(int i=0; i<=n; i++)
+		t[i]=0;
 	kombinacje(t, k, n);
 	printf("\n");
 	return 0;
