@@ -10,7 +10,10 @@ double intpower(double x, int n)
 	if(n%2==1)
 		return x * intpower(x, n-1);
 	else
-		return (intpower(x, n/2))*(intpower(x, n/2));
+	{
+		int r = intpower(x, n/2);
+		return (r*r);
+	}
 }
 
 int main()
