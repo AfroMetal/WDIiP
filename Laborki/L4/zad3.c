@@ -26,13 +26,13 @@ void kombinacje(int *t, int k, int m)
 
 int main()
 {
-	printf("Podaj rozmiar tablicy {1,2, ... , n}: ");
+	printf("\nPodaj rozmiar tablicy {1,2, ... , n}: ");
 	scanf("%d",&n);
 	printf("Podaj długość kombinacji: ");
 	scanf("%d", &k);
-
+	printf("\n");
 	int t[n+1];
-	
 	kombinacje(t, k, n);
+	printf("\n");
 	return 0;
 }
