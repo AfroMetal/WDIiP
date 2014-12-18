@@ -20,10 +20,10 @@ int main()
 {
 	double x;
 	int n;
-	printf("Podaj podstawę x = ");
+	printf("\nPodaj podstawę x = ");
 	scanf("%lf", &x);
 	printf("Podaj wykladnik n = ");
 	scanf("%d", &n);
-	printf("%.0lf ^ %d = %.0f\n", x, n, intpower(x, n));
+	printf("\n%.0lf ^ %d = %.0f\n\n", x, n, intpower(x, n));
 	return 0;
 }
