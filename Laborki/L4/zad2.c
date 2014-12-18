@@ -35,10 +35,12 @@ void permutuj(int *t, const int a, const int b)
 int main()
 {
 	int n;
-	printf("Podaj dla ilu kolejnych liczb naturalnych policzyc permutacje: ");
+	printf("\nPodaj dla ilu kolejnych liczb naturalnych policzyc permutacje: ");
 	scanf("%d",&n);
+	printf("\n");
 	int t[n];
 	for(int i=0; i<n; i++)
 		t[i]=i+1;
   permutuj(t, 0, n);
+	printf("\n");
 }
