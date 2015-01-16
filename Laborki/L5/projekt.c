@@ -5,23 +5,23 @@
 
 int slowa_wyswietlane = 100;
 
-struct Node
+struct Wezel
 {
 	int licznik; //wystapien znaku
 	char slowo[256]; //tablica przechowujaca aktualne slowo
-	struct Node* litery[26]; //kolejne znaki (alfabet angielski)
+	struct Wezel* litery[26]; //kolejne znaki (alfabet angielski)
 };
 
-struct Node* nowy_wezel() //tworzenie wezla
+struct Wezel* nowy_wezel() //tworzenie wezla
 {
-	struct Node* node = (struct Node*) malloc(sizeof(struct Node));	
+	struct Wezel* node = (struct Wezel*) malloc(sizeof(struct Wezel));	
 	node->licznik = 0;
 	for(int i=0; i<26; i++)
 		node->litery[i] = 0;
 	return node;
 }
 
-void usun_wezel(struct Node* node) //czyszczenie wezla
+void usun_wezel(struct Wezel* node) //czyszczenie wezla
 {
 	if(node == 0) return;
 	for(int i=0; i<26; i++)
@@ -30,7 +30,7 @@ void usun_wezel(struct Node* node) //czyszczenie wezla
 	free(node);
 }
 
-struct Node** SLOWA;
+struct Wezel** SLOWA;
 
 void sortowanie() //sortowanie slow wedlug ilosci wystapien
 {
@@ -49,7 +49,7 @@ void sortowanie() //sortowanie slow wedlug ilosci wystapien
 			else
 				if(SLOWA[i]->licznik < SLOWA[i+1]->licznik)
 				{
-					struct Node* tmp = SLOWA[i+1];
+					struct Wezel* tmp = SLOWA[i+1];
 					SLOWA[i+1] = SLOWA[i];
 					SLOWA[i] = tmp;
 				}
@@ -58,7 +58,7 @@ void sortowanie() //sortowanie slow wedlug ilosci wystapien
 	}while(n>1);
 }
 
-void dodaj_wierzcholek(struct Node* node)
+void dodaj_wierzcholek(struct Wezel* node)
 {
 	if(node->licznik > 0 && (!SLOWA[slowa_wyswietlane-1] || (SLOWA[slowa_wyswietlane-1]->licznik < node->licznik)))
 	{
@@ -75,8 +75,8 @@ int main(int argc, char* argv[])
 	if(argc>1)
 		sscanf(argv[1], "%d", &slowa_wyswietlane);
 	
-	struct Node* litery[26];
-	struct Node* aktualny = 0; //aktualny wierzcholek
+	struct Wezel* litery[26];
+	struct Wezel* aktualny = 0; //aktualny wierzcholek
 	
 	for(int i=0; i<26; i++)
 		litery[i] = nowy_wezel();
@@ -116,7 +116,7 @@ int main(int argc, char* argv[])
 	
 	//wyswitlanie listy najczesciej wystepujacych slow
 	
-	SLOWA = (struct Node**) malloc(sizeof(struct Node) * slowa_wyswietlane);
+	SLOWA = (struct Wezel**) malloc(sizeof(struct Wezel) * slowa_wyswietlane);
 	for(int i=0; i<slowa_wyswietlane; i++)
 		SLOWA[i]=0;
 	
