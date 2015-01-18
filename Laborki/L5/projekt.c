@@ -32,7 +32,7 @@ struct Wezel** SLOWA; //lista najczesciej wystepujacych slow (wynik programu)
 
 int main(int argc, char* argv[])
 {
-	if(argc>1)
+	if(argc>1) //jeśli na wejsciu jest wiecej niz jeden parametr pierwszy z nich to liczba slow do wyswietlenia w wyniku
 		sscanf(argv[1], "%d", &slowa_wyswietlane);
 	
 	struct Wezel* litery[26];
@@ -74,7 +74,7 @@ int main(int argc, char* argv[])
 			}
 	}
 	
-	//wyswitlanie listy najczesciej wystepujacych slow
+	//wyswietlanie listy najczesciej wystepujacych slow
 	
 	SLOWA = (struct Wezel**) malloc(sizeof(struct Wezel) * slowa_wyswietlane);
 	for(int i=0; i<slowa_wyswietlane; i++)
@@ -89,6 +89,8 @@ int main(int argc, char* argv[])
 		if(SLOWA[i])
 			printf("%d. \"%s\" %d wystapien,\n", i+1, SLOWA[i]->slowo, SLOWA[i]->licznik);
 	}
+	
+	//czyszczenie listy po wyswietleniu (zwalnianie pamieci)
 	
 	free(SLOWA);
 	for(int i=0; i<26; i++)
