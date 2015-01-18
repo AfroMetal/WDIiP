@@ -12,7 +12,7 @@ int slowa_wyswietlane = 100; //zmienna przechowujaca liczbe slow do wyswietlenia
 struct Wezel
 {
 	int licznik; //licznik wystapien znaku
-	char slowo[256]; //tablica przechowujaca aktualne slowo
+	char slowo[256]; //tablica przechowujaca aktualne slowo (przyjmujemy ze slowo nie ma wiecej niz 256 znakow)
 	struct Wezel* litery[26]; //kolejne znaki (alfabet angielski)
 };
 
