@@ -3,72 +3,32 @@
 #include <ctype.h>
 #include <string.h>
 
-int slowa_wyswietlane = 100;
+int slowa_wyswietlane = 100; //zmienna przechowujaca liczbe slow do wyswietlenia w wyniku
+
+//-----------------------
+//  Wierzcholek drzewa
+//-----------------------
 
 struct Wezel
 {
-	int licznik; //wystapien znaku
+	int licznik; //licznik wystapien znaku
 	char slowo[256]; //tablica przechowujaca aktualne slowo
 	struct Wezel* litery[26]; //kolejne znaki (alfabet angielski)
 };
 
-struct Wezel* nowy_wezel() //tworzenie wezla
-{
-	struct Wezel* node = (struct Wezel*) malloc(sizeof(struct Wezel));	
-	node->licznik = 0;
-	for(int i=0; i<26; i++)
-		node->litery[i] = 0;
-	return node;
-}
+//-----------------------
+//  Deklaracja funkcji
+//-----------------------
 
-void usun_wezel(struct Wezel* node) //czyszczenie wezla
-{
-	if(node == 0) return;
-	for(int i=0; i<26; i++)
-		if(node->litery[i])
-			usun_wezel(node->litery[i]);
-	free(node);
-}
+struct Wezel* nowy_wezel(); //tworzenie wezla (konstruktor)
+void usun_wezel(struct Wezel* node); //czyszczenie wezla (dekonstruktor)
+void sortowanie(); //sortowanie slow wedlug ilosci wystapien
+void dodaj_wierzcholek(struct Wezel* node); //dodaje wierzcholek do listy wynikowej i sortuje ja funkcja sortowanie()
+struct Wezel** SLOWA; //lista najczesciej wystepujacych slow (wynik programu)
 
-struct Wezel** SLOWA;
-
-void sortowanie() //sortowanie slow wedlug ilosci wystapien
-{
-	int n = slowa_wyswietlane;
-	do
-	{
-		for(int i=0; i<n-1; i++)
-		{
-			if(!SLOWA[i+1]) continue;
-			if(!SLOWA[i])
-			{
-				SLOWA[i] = SLOWA[i+1];
-				SLOWA[i+1] = 0;
-				continue;
-			}
-			else
-				if(SLOWA[i]->licznik < SLOWA[i+1]->licznik)
-				{
-					struct Wezel* tmp = SLOWA[i+1];
-					SLOWA[i+1] = SLOWA[i];
-					SLOWA[i] = tmp;
-				}
-		}
-		n--;
-	}while(n>1);
-}
-
-void dodaj_wierzcholek(struct Wezel* node)
-{
-	if(node->licznik > 0 && (!SLOWA[slowa_wyswietlane-1] || (SLOWA[slowa_wyswietlane-1]->licznik < node->licznik)))
-	{
-		SLOWA[slowa_wyswietlane-1] = node;
-		sortowanie();
-	}
-	for(int i=0; i<26; i++)
-		if(node->litery[i])
-			dodaj_wierzcholek(node->litery[i]);
-}
+//-----------------------
+//    Cialo programu
+//-----------------------
 
 int main(int argc, char* argv[])
 {
@@ -135,4 +95,63 @@ int main(int argc, char* argv[])
 		usun_wezel(litery[i]);
 	
 	return 0;
+}
+
+//-----------------------
+//       Funkcje
+//-----------------------
+
+struct Wezel* nowy_wezel()
+{
+	struct Wezel* node = (struct Wezel*) malloc(sizeof(struct Wezel));	
+	node->licznik = 0;
+	for(int i=0; i<26; i++)
+		node->litery[i] = 0;
+	return node;
+}
+
+void usun_wezel(struct Wezel* node)
+{
+	if(node == 0) return;
+	for(int i=0; i<26; i++)
+		if(node->litery[i])
+			usun_wezel(node->litery[i]);
+	free(node);
+}
+
+void sortowanie()
+	int n = slowa_wyswietlane;
+	do
+	{
+		for(int i=0; i<n-1; i++)
+		{
+			if(!SLOWA[i+1]) continue;
+			if(!SLOWA[i])
+			{
+				SLOWA[i] = SLOWA[i+1];
+				SLOWA[i+1] = 0;
+				continue;
+			}
+			else
+				if(SLOWA[i]->licznik < SLOWA[i+1]->licznik)
+				{
+					struct Wezel* tmp = SLOWA[i+1];
+					SLOWA[i+1] = SLOWA[i];
+					SLOWA[i] = tmp;
+				}
+		}
+		n--;
+	}while(n>1);
+}
+
+void dodaj_wierzcholek(struct Wezel* node)
+{
+	if(node->licznik > 0 && (!SLOWA[slowa_wyswietlane-1] || (SLOWA[slowa_wyswietlane-1]->licznik < node->licznik)))
+	{
+		SLOWA[slowa_wyswietlane-1] = node;
+		sortowanie();
+	}
+	for(int i=0; i<26; i++)
+		if(node->litery[i])
+			dodaj_wierzcholek(node->litery[i]);
 }
