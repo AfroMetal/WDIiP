@@ -32,7 +32,7 @@ struct Wezel** SLOWA; //lista najczesciej wystepujacych slow (wynik programu)
 
 int main(int argc, char* argv[])
 {
-	if(argc>1) //jeśli na wejsciu jest wiecej niz jeden parametr pierwszy z nich to liczba slow do wyswietlenia w wyniku
+	if(argc>1) //jeli na wejsciu jest wiecej niz jeden parametr pierwszy z nich to liczba slow do wyswietlenia w wyniku
 		sscanf(argv[1], "%d", &slowa_wyswietlane);
 	
 	struct Wezel* litery[26];
@@ -122,6 +122,7 @@ void usun_wezel(struct Wezel* node)
 }
 
 void sortowanie()
+{
 	int n = slowa_wyswietlane;
 	do
 	{
